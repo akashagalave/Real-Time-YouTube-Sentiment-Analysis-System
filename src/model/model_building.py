@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 import os
@@ -6,7 +5,7 @@ import pickle
 import yaml
 import logging
 import lightgbm as lgb
-
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # logging configuration
 logger = logging.getLogger('model_building')
@@ -59,6 +58,29 @@ def load_data(file_path: str) -> pd.DataFrame:
         raise
 
 
+def apply_tfidf(train_data: pd.DataFrame, max_features: int, ngram_range: tuple) -> tuple:
+    """Apply TF-IDF with ngrams to the data."""
+    try:
+        vectorizer = TfidfVectorizer(max_features=max_features, ngram_range=ngram_range)
+
+        X_train = train_data['clean_comment'].values
+        y_train = train_data['category'].values
+
+        # Perform TF-IDF transformation
+        X_train_tfidf = vectorizer.fit_transform(X_train)
+
+        logger.debug(f"TF-IDF transformation complete. Train shape: {X_train_tfidf.shape}")
+
+        # Save the vectorizer in the root directory
+        with open(os.path.join(get_root_directory(), 'tfidf_vectorizer.pkl'), 'wb') as f:
+            pickle.dump(vectorizer, f)
+
+        logger.debug('TF-IDF applied with trigrams and data transformed')
+        return X_train_tfidf, y_train
+    except Exception as e:
+        logger.error('Error during TF-IDF transformation: %s', e)
+        raise
+
 
 def train_lgbm(X_train: np.ndarray, y_train: np.ndarray, learning_rate: float, max_depth: int, n_estimators: int) -> lgb.LGBMClassifier:
     """Train a LightGBM model."""
@@ -107,16 +129,18 @@ def main():
 
         # Load parameters from the root directory
         params = load_params(os.path.join(root_dir, 'params.yaml'))
+        max_features = params['model_building']['max_features']
+        ngram_range = tuple(params['model_building']['ngram_range'])
 
         learning_rate = params['model_building']['learning_rate']
         max_depth = params['model_building']['max_depth']
         n_estimators = params['model_building']['n_estimators']
 
-        trained_df = pd.read_csv(os.path.join(root_dir, 'data/processed/trained.csv'))  
-        X_train_tfidf = trained_df.drop(columns=['category']).values 
-        y_train = trained_df['category'].values  
+        # Load the preprocessed training data from the interim directory
+        train_data = load_data(os.path.join(root_dir, 'data/interim/train_processed.csv'))
 
-        
+        # Apply TF-IDF feature engineering on training data
+        X_train_tfidf, y_train = apply_tfidf(train_data, max_features, ngram_range)
 
         # Train the LightGBM model using hyperparameters from params.yaml
         best_model = train_lgbm(X_train_tfidf, y_train, learning_rate, max_depth, n_estimators)
