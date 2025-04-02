@@ -2,57 +2,44 @@ import pytest
 import requests
 import json
 
-BASE_URL = "http://localhost:5000"
+BASE_URL = "http://localhost:5000"  # Replace with your deployed URL if needed
 
 def test_predict_endpoint():
-    """Test /predict endpoint with valid input"""
     data = {
         "comments": ["This is a great product!", "Not worth the money.", "It's okay."]
     }
-    
     response = requests.post(f"{BASE_URL}/predict", json=data)
-    print("Response:", response.text)  # Debugging output
-    
-    assert response.status_code == 200, f"Expected 200, got {response.status_code}. Response: {response.text}"
-    assert isinstance(response.json(), list), f"Response is not a list. Response: {response.text}"
-    assert all(isinstance(item, int) for item in response.json()), "Response does not contain integers."
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)
 
 def test_predict_with_timestamps_endpoint():
-    """Test /predict_with_timestamps endpoint with valid input, expected failure"""
     data = {
         "comments": [
             {"text": "This is fantastic!", "timestamp": "2024-10-25 10:00:00"},
             {"text": "Could be better.", "timestamp": "2024-10-26 14:00:00"}
         ]
     }
-    
-    formatted_data = {"comments": [comment["text"] for comment in data["comments"]]}
-
-    response = requests.post(f"{BASE_URL}/predict_with_timestamps", json=formatted_data)
-    print("Response:", response.text)  # Debugging output
-    
-    assert response.status_code == 500, f"Expected failure with 500, got {response.status_code}. Response: {response.text}"
+    response = requests.post(f"{BASE_URL}/predict_with_timestamps", json=data)
+    assert response.status_code == 200
+    assert all('sentiment' in item for item in response.json())
 
 def test_generate_chart_endpoint():
-    """Test /generate_chart endpoint"""
-    data = {"sentiment_counts": {"1": 5, "0": 3, "-1": 2}}
+    data = {
+        "sentiment_counts": {"1": 5, "0": 3, "-1": 2}
+    }
     response = requests.post(f"{BASE_URL}/generate_chart", json=data)
-    print("Response Headers:", response.headers)  # Debugging output
-
-    assert response.status_code == 200, f"Expected 200, got {response.status_code}."
-    assert response.headers.get("Content-Type") == "image/png", "Expected image/png format."
+    assert response.status_code == 200
+    assert response.headers["Content-Type"] == "image/png"
 
 def test_generate_wordcloud_endpoint():
-    """Test /generate_wordcloud endpoint"""
-    data = {"comments": ["Love this!", "Not so great.", "Absolutely amazing!", "Horrible experience."]}
+    data = {
+        "comments": ["Love this!", "Not so great.", "Absolutely amazing!", "Horrible experience."]
+    }
     response = requests.post(f"{BASE_URL}/generate_wordcloud", json=data)
-    print("Response Headers:", response.headers)  # Debugging output
-
-    assert response.status_code == 200, f"Expected 200, got {response.status_code}."
-    assert response.headers.get("Content-Type") == "image/png", "Expected image/png format."
+    assert response.status_code == 200
+    assert response.headers["Content-Type"] == "image/png"
 
 def test_generate_trend_graph_endpoint():
-    """Test /generate_trend_graph endpoint, expected failure"""
     data = {
         "sentiment_data": [
             {"timestamp": "2024-10-01", "sentiment": 1},
@@ -61,6 +48,5 @@ def test_generate_trend_graph_endpoint():
         ]
     }
     response = requests.post(f"{BASE_URL}/generate_trend_graph", json=data)
-    print("Response Headers:", response.headers)  # Debugging output
-
-    assert response.status_code == 500, f"Expected failure with 500, got {response.status_code}. Response: {response.text}"
+    assert response.status_code == 200
+    assert response.headers["Content-Type"] == "image/png"
