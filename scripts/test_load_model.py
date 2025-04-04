@@ -3,7 +3,7 @@ import pytest
 from mlflow.tracking import MlflowClient
 
 # Set your remote tracking URI
-mlflow.set_tracking_uri("http://54.89.192.210:5000")
+mlflow.set_tracking_uri("http://54.89.192.210:5000/")
 
 @pytest.mark.parametrize("model_name, stage", [
     ("yt_chrome_plugin_model", "staging"),])
