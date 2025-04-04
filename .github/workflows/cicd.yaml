@@ -111,7 +111,7 @@ jobs:
       - name: Build Docker image
         if: success()
         run: |
-          docker build -t yt-chrome-plugin .
+          docker build -t youtube-comments-analysis .
 
       - name: Tag Docker image
         if: success()
