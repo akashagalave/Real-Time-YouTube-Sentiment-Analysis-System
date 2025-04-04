@@ -9,6 +9,7 @@ def test_predict_endpoint():
         "comments": ["This is a good product!", "Not worth the money.", "It's okay."]
     }
     response = requests.post(f"{BASE_URL}/predict", json=data)
+    print("Predict Response Text:", response.text)  # 🔍 Added for debugging
     assert response.status_code == 200
     assert isinstance(response.json(), list)
 
@@ -20,6 +21,7 @@ def test_predict_with_timestamps_endpoint():
         ]
     }
     response = requests.post(f"{BASE_URL}/predict_with_timestamps", json=data)
+    print("Predict with Timestamps Response Text:", response.text)  # 🔍 Added for debugging
     assert response.status_code == 200
     assert all('sentiment' in item for item in response.json())
 
