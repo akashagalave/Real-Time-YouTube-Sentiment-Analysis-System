@@ -2,15 +2,24 @@ import pytest
 import requests
 import json
 
-BASE_URL = "http://localhost:5000"  # Replace with your deployed URL if needed
+BASE_URL = "http://localhost:5000"  # Adjust this if using deployed URL
+
+def print_debug_info(endpoint, response):
+    print(f"\n[DEBUG] Endpoint: {endpoint}")
+    print(f"[DEBUG] Status Code: {response.status_code}")
+    try:
+        print(f"[DEBUG] Response JSON: {response.json()}")
+    except Exception:
+        print(f"[DEBUG] Response Text: {response.text}")
 
 def test_predict_endpoint():
     data = {
         "comments": ["This is a great product!", "Not worth the money.", "It's okay."]
     }
     response = requests.post(f"{BASE_URL}/predict", json=data)
-    assert response.status_code == 200
-    assert isinstance(response.json(), list)
+    print_debug_info("/predict", response)
+    assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+    assert isinstance(response.json(), list), "Response is not a list"
 
 def test_predict_with_timestamps_endpoint():
     data = {
@@ -20,15 +29,18 @@ def test_predict_with_timestamps_endpoint():
         ]
     }
     response = requests.post(f"{BASE_URL}/predict_with_timestamps", json=data)
-    assert response.status_code == 200
-    assert all('sentiment' in item for item in response.json())
+    print_debug_info("/predict_with_timestamps", response)
+    assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+    assert isinstance(response.json(), list), "Response is not a list"
+    assert all('sentiment' in item for item in response.json()), "Missing 'sentiment' in some items"
 
 def test_generate_chart_endpoint():
     data = {
         "sentiment_counts": {"1": 5, "0": 3, "-1": 2}
     }
     response = requests.post(f"{BASE_URL}/generate_chart", json=data)
-    assert response.status_code == 200
+    print_debug_info("/generate_chart", response)
+    assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     assert response.headers["Content-Type"] == "image/png"
 
 def test_generate_wordcloud_endpoint():
@@ -36,7 +48,8 @@ def test_generate_wordcloud_endpoint():
         "comments": ["Love this!", "Not so great.", "Absolutely amazing!", "Horrible experience."]
     }
     response = requests.post(f"{BASE_URL}/generate_wordcloud", json=data)
-    assert response.status_code == 200
+    print_debug_info("/generate_wordcloud", response)
+    assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     assert response.headers["Content-Type"] == "image/png"
 
 def test_generate_trend_graph_endpoint():
@@ -48,5 +61,6 @@ def test_generate_trend_graph_endpoint():
         ]
     }
     response = requests.post(f"{BASE_URL}/generate_trend_graph", json=data)
-    assert response.status_code == 200
+    print_debug_info("/generate_trend_graph", response)
+    assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     assert response.headers["Content-Type"] == "image/png"
