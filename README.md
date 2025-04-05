@@ -43,7 +43,7 @@ All in real time. Zero clicks. Pure signal.
 
 ## 🎥 Watch It in Action
 
-▶️ [![Watch the Demo](Demo_Video/demo-thumbnail.png)](https://youtu.be/_TNyI318wKw)
+▶️ [![Watch the Demo](Demo_Video/demo-thumbnail.png)](https://youtu.be/TWeigdaiA3Y)
 
  
 Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
