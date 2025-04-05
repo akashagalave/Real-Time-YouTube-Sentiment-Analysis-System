@@ -8,6 +8,8 @@
 
 ---
 
+
+
 ## 🚀 Project Vision
 
 Every video sparks a sea of emotions.  
@@ -17,6 +19,8 @@ But manually filtering through thousands of comments? Not scalable. Not smart.
 ⚡ **Result**: Instant emotion tagging as you browse. Think: ✨ NLP x UX ✨
 
 ---
+
+
 
 ## 🧠 The Intelligence Layer
 
@@ -32,6 +36,8 @@ All in real time. Zero clicks. Pure signal.
 
 ---
 
+
+
 ## 🌐 Who's This For?
 
 | 👥 **Role**           | 💡 **How It Helps**                                                       |
@@ -42,6 +48,8 @@ All in real time. Zero clicks. Pure signal.
 
 ---
 
+
+
 ## 🎥 Watch It in Action
 
 ▶️ [![Watch the Demo](Demo_Video/demo-thumbnail.png)](https://youtu.be/TWeigdaiA3Y)
@@ -50,6 +58,8 @@ All in real time. Zero clicks. Pure signal.
 Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
 ---
+
+
 
 ## 🧰 Behind the Scenes – The Tech That Powers It
 
@@ -61,6 +71,8 @@ Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 | **Backend API**       | `Flask` app serving model via Docker, deployed on `AWS EC2` + `ECR`, CI/CD via `CodeDeploy`|
 
 ---
+
+
 
 ## ✨ Core Highlights
 
@@ -78,6 +90,8 @@ Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
 ---
 
+
+
 ## 🧾 Repositories You Need
 
 | 📁 **Component**        | 🔗 **GitHub Repo**                                                                 |
@@ -88,20 +102,33 @@ Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
 ---
 
+
+
+
+
 ## 🧪 Try It Yourself – Run Locally
 
 ### 🔧 Step 1: Start the Flask Backend
 
 git clone https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis.git
+
 cd YouTube-Comment-Sentiment-Analysis
+
 pip install -r requirements.txt
+
 python app.py
 
 
 The Flask server will start and serve the ML model at http://127.0.0.1:5000.
 
 
+
+
+
+
+
 ### 🧩 Step 2: Load the Chrome Extension
+
 git clone https://github.com/akashagalave/YT-CHROME-PLUGIN.git
 
 
