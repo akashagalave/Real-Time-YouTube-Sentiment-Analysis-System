@@ -113,8 +113,12 @@ Then follow these steps in your browser:
 3.  Click Load Unpacked
 4.  Select the YT-CHROME-PLUGIN directory
 
-Done ✅ Your browser is now AI-enhanced
+### Done ✅ Your browser is now AI-enhanced
 ---
+
+
+
+
 
 
 Built with grit, grind, and ❤️ by [Akash Agalave](https://github.com/akashagalave)
