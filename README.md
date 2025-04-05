@@ -84,6 +84,7 @@ Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 | 🧠 Model + Backend API   | [YouTube-Comment-Sentiment-Analysis](https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis) |
 | 🌐 Chrome Extension UI   | [YT-CHROME-PLUGIN](https://github.com/akashagalave/YT-CHROME-PLUGIN)               |
 
+
 ---
 
 ## 🧪 Try It Yourself – Run Locally
@@ -96,10 +97,13 @@ cd YouTube-Comment-Sentiment-Analysis
 pip install -r requirements.txt
 python app.py
 
-
+---
 
 The Flask server will start and serve the ML model at http://127.0.0.1:5000.
 
+
+
+---
 
 ### 🧩 Step 2: Load the Chrome Extension
 
@@ -117,6 +121,9 @@ Then follow these steps in your browser:
 
 Done ✅ Your browser is now AI-enhanced
 
+
+
+--- 
 
 Built with  grit, grind, and ❤️ by [Akash Agalave](https://github.com/akashagalave)
 
