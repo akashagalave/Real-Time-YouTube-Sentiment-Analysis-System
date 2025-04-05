@@ -1,94 +1,99 @@
-# 🔍 YouTube Comment Sentiment Analyzer – Real-Time Chrome Extension
+<h1 align="center">🔮 Real-Time YouTube Sentiment Analyzer</h1>
 
-🚀 A next-gen, **AI-powered Chrome plugin** that brings YouTube comment sentiment analysis **directly to your browser – in real time**!  
-This project fuses **Machine Learning**, **MLOps**, and **Cloud Deployment** into one slick and interactive user experience.
-
----
-
-## 🎯 Why This Project?
-
-Every day, millions engage through YouTube comments — some supportive, some critical, some downright toxic. But creators, marketers, and researchers face a major problem:
-
-> ❓ How do we **quickly understand audience sentiment** at scale and in real time?
+<p align="center">
+  <b>AI meets YouTube — where every comment speaks, and we listen.</b><br/>
+  <i>An intelligent Chrome extension that reads the crowd before you even scroll.</i>
+</p>
 
 ---
 
-### ✅ Our Solution
+## 🚀 Project Vision
 
-The plugin **automatically reads YouTube comments**, runs them through a trained **ML model**, and injects real-time sentiment tags into the YouTube UI itself.
+Every video sparks a sea of emotions.  
+But manually filtering through thousands of comments? Not scalable. Not smart.
 
-💬 Each comment is analyzed live and marked as:
+🎯 **Mission**: Deliver real-time sentiment insights — directly into YouTube’s UI.  
+⚡ **Result**: Instant emotion tagging as you browse. Think: ✨ NLP x UX ✨
+
+---
+
+## 🧠 The Intelligence Layer
+
+> “Don’t just read comments — *understand* them.”
+
+Powered by a **fine-tuned LightGBM model**, this extension classifies each comment as:
+
 - ✅ **Positive**
 - ⚪ **Neutral**
 - ❌ **Negative**
 
-> 🧠 **Result:** Creators, brands, and researchers get instant audience intelligence **without scrolling endlessly**.
+All in real time. Zero clicks. Pure signal.
 
 ---
 
-## 🔥 Real-World Use Cases
+## 🌐 Who's This For?
 
-| 👥 User Type         | 💡 Value Delivered                                                |
-|---------------------|-------------------------------------------------------------------|
-| 🎥 **Content Creators** | Instantly track fan reactions & early criticism on uploads        |
-| 📈 **Marketers**         | Monitor brand perception & campaign feedback in real time        |
-| 🧠 **Researchers**        | Study public sentiment at scale across multiple niches/videos    |
-
----
-
-## 📽️ Live Demo
-
-▶️ **See It in Action!**  
-👉 [Watch the Demo Video](Demo_Video/YT-Plugin.mp4)
+| 👥 **Role**           | 💡 **How It Helps**                                                       |
+|----------------------|---------------------------------------------------------------------------|
+| 🎥 **YouTubers**      | Gauge real-time audience feedback and spot early criticism                |
+| 📈 **Digital Marketers** | Analyze brand sentiment across campaigns & creators                     |
+| 🧪 **Data Researchers** | Study public reactions across niches without scraping tools              |
 
 ---
 
-## 🧠 Full Tech Stack
+## 🎥 Watch It in Action
 
-| **Layer**      | **Stack**                                                                                          |
-|----------------|----------------------------------------------------------------------------------------------------|
-| **ML & NLP**   | `LightGBM`, `TfidfVectorizer`, `Optuna`                                                            |
-| **MLOps**      | `DVC` (data & pipeline versioning), `MLflow`, `Docker`, `AWS EC2`, `ECR`, `CodeDeploy`, `S3`      |
-| **Frontend**   | Chrome Extension using `HTML`, `CSS`, `JavaScript`, `Manifest v3`                                  |
-| **Backend**    | `Flask` API serving the ML model via `Docker`, deployed on **AWS EC2**                             |
+▶️ [Click to View the Demo Video](Demo_Video\yt-plugin_nE4X1vSO.mp4)  
+Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
 ---
 
-## ✨ Key Features
+## 🧰 Behind the Scenes – The Tech That Powers It
 
-✅ **Real-time Sentiment Detection**  
-→ Tags comments as **Positive**, **Neutral**, or **Negative** — live, as you scroll.
-
-🧠 **ML-Powered Predictions**  
-→ Built using a fine-tuned `LightGBM` classifier, optimized via `Optuna`.
-
-🌩️ **Cloud-Native Deployment**  
-→ Hosted on AWS using:
-- **EC2** + **Docker** for scalable backend
-- **ECR** for container registry
-- **S3** + **MLflow** for model tracking
-- **CodeDeploy** + **AutoScaling** for zero-downtime deployment
+| 🧩 **Layer**         | ⚙️ **Tools & Frameworks**                                                                 |
+|----------------------|---------------------------------------------------------------------------------------------|
+| **ML & NLP Engine**   | `LightGBM`, `TfidfVectorizer`, `Optuna` (for hyperparameter tuning)                        |
+| **MLOps Backbone**    | `DVC` for data/pipeline versioning, `MLflow` for model tracking, `Docker`, `AWS Stack`     |
+| **Frontend (Plugin)** | `HTML`, `CSS`, `JavaScript`, `Manifest v3`                                                 |
+| **Backend API**       | `Flask` app serving model via Docker, deployed on `AWS EC2` + `ECR`, CI/CD via `CodeDeploy`|
 
 ---
 
-## 📁 Repositories
+## ✨ Core Highlights
 
-| Component         | GitHub Repo                                                                 |
-|------------------|------------------------------------------------------------------------------|
-| 🤖 **Backend + Model**   | [`YouTube-Comment-Sentiment-Analysis`](https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis) |
-| 🧩 **Chrome Plugin**     | [`YT-CHROME-PLUGIN`](https://github.com/akashagalave/YT-CHROME-PLUGIN)                                    |
+💬 **Real-Time UX Integration**  
+→ Comments are tagged as you scroll — directly on YouTube.
+
+🔬 **NLP-Driven Classifier**  
+→ Custom-trained LightGBM model optimized with Optuna.
+
+🌩️ **Cloud-Deployed at Scale**  
+→ Full deployment on AWS (EC2, ECR, CodeDeploy, S3) with scalable, versioned pipelines.
+
+🧪 **Experimentation-Ready**  
+→ DVC + MLflow make it easy to iterate and reproduce model experiments.
 
 ---
 
-## ⚙️ Run It Locally – In Just Minutes!
+## 🧾 Repositories You Need
 
-### 🛠️ Backend Setup
+| 📁 **Component**        | 🔗 **GitHub Repo**                                                                 |
+|-------------------------|------------------------------------------------------------------------------------|
+| 🧠 Model + Backend API   | [YouTube-Comment-Sentiment-Analysis](https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis) |
+| 🌐 Chrome Extension UI   | [YT-CHROME-PLUGIN](https://github.com/akashagalave/YT-CHROME-PLUGIN)               |
+
+---
+
+## 🧪 Try It Yourself – Run Locally
+
+### 🔧 Step 1: Start the Flask Backend
 
 ```bash
 git clone https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis.git
 cd YouTube-Comment-Sentiment-Analysis
 pip install -r requirements.txt
 python app.py
+
 
 
 The Flask server will start and serve the ML model at http://127.0.0.1:5000.
@@ -108,8 +113,10 @@ Then follow these steps in your browser:
 3.  Click Load Unpacked
 4.  Select the YT-CHROME-PLUGIN directory
 
+Done ✅ Your browser is now AI-enhanced
 
-Built with ❤️ by [Akash Agalave](https://github.com/akashagalave)
+
+Built with  grit, grind, and ❤️ by [Akash Agalave](https://github.com/akashagalave)
 
 
 
