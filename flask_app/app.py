@@ -37,7 +37,7 @@ def preprocess_comment(comment):
 
 # Load model and vectorizer
 def load_model_and_vectorizer(model_name, model_version, vectorizer_path):
-    mlflow.set_tracking_uri("http://54.89.192.210:5000")  # Replace with actual MLflow tracking URI
+    mlflow.set_tracking_uri("http://54.196.51.159:5000")  # Replace with actual MLflow tracking URI
     client = MlflowClient()
     model_uri = f"models:/{model_name}/{model_version}"
     model = mlflow.pyfunc.load_model(model_uri)
