@@ -43,7 +43,8 @@ All in real time. Zero clicks. Pure signal.
 
 ## 🎥 Watch It in Action
 
-▶️ [Click to View the Demo Video](Demo_Video/yt-plugin_nE4X1vSO.mp4)
+▶️ [![Watch the Demo](Demo_Video/demo-thumbnail.png)](https://youtu.be/_TNyI318wKw)
+
  
 Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
