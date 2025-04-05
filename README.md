@@ -5,6 +5,7 @@
   <i>An intelligent Chrome extension that reads the crowd before you even scroll.</i>
 </p>
 
+
 ---
 
 ## 🚀 Project Vision
@@ -91,23 +92,16 @@ Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
 ### 🔧 Step 1: Start the Flask Backend
 
-```bash
 git clone https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis.git
 cd YouTube-Comment-Sentiment-Analysis
 pip install -r requirements.txt
 python app.py
 
----
 
 The Flask server will start and serve the ML model at http://127.0.0.1:5000.
 
 
-
----
-
 ### 🧩 Step 2: Load the Chrome Extension
-
-```bash
 git clone https://github.com/akashagalave/YT-CHROME-PLUGIN.git
 
 
@@ -120,12 +114,15 @@ Then follow these steps in your browser:
 4.  Select the YT-CHROME-PLUGIN directory
 
 Done ✅ Your browser is now AI-enhanced
+---
+
+
+Built with grit, grind, and ❤️ by [Akash Agalave](https://github.com/akashagalave)
 
 
 
---- 
+ 
 
-Built with  grit, grind, and ❤️ by [Akash Agalave](https://github.com/akashagalave)
 
 
 
