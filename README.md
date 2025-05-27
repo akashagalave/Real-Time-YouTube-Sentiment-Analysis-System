@@ -110,9 +110,9 @@ Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
 ### 🔧 Step 1: Start the Flask Backend
 
-git clone https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis.git
+git clone https://github.com/akashagalave/Real-Time-YouTube-Sentiment-Analysis-System
 
-cd YouTube-Comment-Sentiment-Analysis
+cd Real-Time-YouTube-Sentiment-Analysis-System
 
 pip install -r requirements.txt
 
