@@ -96,7 +96,7 @@ Live walkthrough showing how the plugin plugs into YouTube’s UI like magic ✨
 
 | 📁 **Component**        | 🔗 **GitHub Repo**                                                                 |
 |-------------------------|------------------------------------------------------------------------------------|
-| 🧠 Model + Backend API   | [YouTube-Comment-Sentiment-Analysis](https://github.com/akashagalave/YouTube-Comment-Sentiment-Analysis) |
+| 🧠 Model + Backend API   | [YouTube-Comment-Sentiment-Analysis](https://github.com/akashagalave/Real-Time-YouTube-Sentiment-Analysis-System) |
 | 🌐 Chrome Extension UI   | [YT-CHROME-PLUGIN](https://github.com/akashagalave/YT-CHROME-PLUGIN)               |
 
 
